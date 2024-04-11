@@ -1,0 +1,6 @@
+TP4:
+2)Fusionar dos listas ordenadas
+4)Crear una lista con los valores inversos a una recibida
+5)Invertir la lista en sí misma
+7)Dividir una lista en dos, una con los valores pares y otra con los impares
+8)Recibir una lista cuyos elementos son otras listas y calcular el promedio de estas últimas

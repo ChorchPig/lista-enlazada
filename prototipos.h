@@ -11,12 +11,9 @@ typedef struct _sll_node {
 sll_node* sll_node_create (LIST_ELEMENT element);
 void sll_print(sll_node* head);
 int sll_add_node(sll_node** head, sll_node* new_node);
-int sll_add_node2(sll_node** head, sll_node* new_node);
 void sll_add(sll_node** head, LIST_ELEMENT element);
-void sll_add2(sll_node** head, LIST_ELEMENT element);
 void sll_add_first(sll_node** head, LIST_ELEMENT element);
 sll_node* sll_remove_element(sll_node** head, LIST_ELEMENT element);
-sll_node* sll_remove_element2(sll_node** head, LIST_ELEMENT element);
 int sll_remove(sll_node** head, LIST_ELEMENT element);
 int sll_remove_all(sll_node** head, LIST_ELEMENT element);
 

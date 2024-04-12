@@ -6,21 +6,57 @@
 void dividirLista(sll_node*,sll_node*);
 void eliminarLista(sll_node*);
 void fusionarListas(sll_node*,sll_node*);
+void eliminarDuplicados(sll_node*);
+int existeEnLista(sll_node*,LIST_ELEMENT);
 
 int main(){
-    sll_node *lista1=NULL, *lista2=NULL;
-    sll_add(&lista1, 1);
-    sll_add(&lista2, 2);
-    sll_add(&lista1, 3);
-    sll_add(&lista2, 4);
-    sll_add(&lista1, 5);
-    sll_print(lista1);
-    sll_print(lista2);
-    fusionarListas(lista1, lista2);
-    sll_print(lista1);
-    eliminarLista(lista1);
+    sll_node *lista=NULL;
+    sll_add(&lista, 1);
+    sll_add(&lista, 2);
+    sll_add(&lista, 1);
+    sll_add(&lista, 3);
+    sll_add(&lista, 1);
+    sll_add(&lista, 2);
+    sll_add(&lista, 3);
+    sll_print(lista);
+    eliminarDuplicados(lista);
+    sll_print(lista);
+    //eliminarLista(lista);
     return 0;
 }
+
+void eliminarDuplicados(sll_node *lista){
+    sll_node *aux=lista;
+    while(aux){
+        if(existeEnLista(aux->next, aux->value))
+            {
+            sll_remove_all(&aux->next, aux->value);
+        }
+        aux=aux->next;
+    }
+}
+
+int existeEnLista(sll_node *lista, LIST_ELEMENT elemento){
+    int existe=0;
+    if(lista){
+        sll_node *aux=lista;
+        while(aux->next&&!existe){
+            if(aux->value==elemento)existe=1;
+            aux=aux->next;
+        }
+    }
+    return existe;
+}
+
+int sll_remove_all(sll_node** head, LIST_ELEMENT element) {
+    int result = 0;
+    while (sll_remove(head, element) == 1) {
+        result = 1;
+    }
+    return result;
+}
+
+
 
 void fusionarListas(sll_node *lista1, sll_node *lista2){//asume que lista1->value<lista2->value
     sll_node *aux1=lista1, *aux2=lista2;

@@ -32,8 +32,7 @@ sll_remove(sll_node** head, LIST_ELEMENT element)
 elimina el nodo que contiene a element de la lista y libera el espacio de memoria, devuelve 1 si no hubo problema alguno y 0 en caso contrario
 
 sll_remove_all(sll_node** head, LIST_ELEMENT element)
-NO EJECUTAR
-libera el espacio de memoria de toda la lista, devuelve 1 si no hubo ningún problema y 0 en caso contrario
+libera el espacio de memoria de todos los nodos que contengan element, devuelve 1 si no hubo ningún problema y 0 en caso contrario
 
 sll_remove_element4(sll_node** head, LIST_ELEMENT element)
 funciona igual a sll_remove pero cambia su implementación interna

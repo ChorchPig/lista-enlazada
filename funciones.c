@@ -11,14 +11,8 @@ sll_node* sll_node_create (LIST_ELEMENT element) {
     return new_node;
 }
 
-void list_print_r (sll_node* a_node, void pnt(LIST_ELEMENT)){
-    if (a_node != NULL){
-        pnt(a_node->value);
-        list_print_r(a_node->next, pnt);
-    }
-}
-
 void sll_print(sll_node* head) {
+    if(!head)return;
     sll_node* aux = head;
     while (aux != NULL) {
         printf("%d ", aux->value);
@@ -120,7 +114,7 @@ int sll_remove(sll_node** head, LIST_ELEMENT element) {
     return result;
 }
 
-int sll_remove_all(sll_node** head, LIST_ELEMENT element) {//¿Es eficiente?
+int sll_remove_all(sll_node** head, LIST_ELEMENT element) {
     int result = 0;
     while (sll_remove(head, element) == 1) {
         result = 1;
@@ -128,25 +122,3 @@ int sll_remove_all(sll_node** head, LIST_ELEMENT element) {//¿Es eficiente?
     return result;
 }
 
-int sll_remove_element4(sll_node** head, LIST_ELEMENT element) {
-    int result = 0;
-    if (*head != NULL) {
-        if ((*head)->value == element) {
-            sll_node* aux = *head;
-            *head = (*head)->next;
-            aux->next = NULL;
-            free(aux);
-            result = 1;
-        } else {
-            result = sll_remove_element4(&(*head)->next, element);
-        }
-    }
-    return result;
-}
-
-//void sll_remove_duplicates(sll_node** head) {
-//    if (*head != NULL){
-//        sll_remove_element5(&(*head)->next, (*head)->value);
-//        sll_remove_duplicates(&(*head)->next);
-//    }
-//}

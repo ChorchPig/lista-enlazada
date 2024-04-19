@@ -19,5 +19,11 @@ int sll_remove_all(sll_node** head, LIST_ELEMENT element);
 
 int listaOrdenada(sll_node*);
 LIST_ELEMENT obtenerValorMinimo(sll_node *);
+void dividirLista(sll_node*,sll_node*);
+void eliminarLista(sll_node*);
+void fusionarListas(sll_node*,sll_node*);
+void eliminarDuplicados(sll_node*);
+int existeEnLista(sll_node*,LIST_ELEMENT);
+sll_node* copiarListaInvertida(sll_node*);
 
 #endif // PROTOTIPOS_H_INCLUDED
